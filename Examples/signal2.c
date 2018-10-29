@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+
+void f(int signum)
+{
+    printf("You can't quit!\n");
+    printf("signum = %d\n", signum);
+}
+
+int main(int argc, char *argv[])
+{
+    int i;
+    
+    signal(SIGINT, f);
+
+    printf("I'm running...\n");
+    
+    while (1)
+    {
+        printf("Still going...\n");
+        sleep(1);
+    }
+    
+    return 0;
+}
+

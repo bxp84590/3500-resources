@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int x;
+
+void function2()
+{
+    printf("function: %d\n", x);
+    x = 999;
+    printf("function: %d\n", x);
+}
+

@@ -1,0 +1,32 @@
+/*******************************************************************************
+selection.c
+
+Gets a number and tells if it is zero, positive, or negative.
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+{
+    int number;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &number);
+    
+    // What happens when (number = 0) is used?
+    if (number == 0)
+    {
+        printf("%d is zero\n", number);
+    }
+    else if (number > 0)
+    {
+        printf("%d is positive\n", number);
+    }
+    else
+    {
+        printf("%d is negative\n", number);
+    }
+
+    return 0;
+}
+

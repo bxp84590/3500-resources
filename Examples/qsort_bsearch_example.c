@@ -1,0 +1,78 @@
+/*******************************************************************************
+
+qsort() and bsearch() Example
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIZE 100
+
+int compare_function(const void *a, const void *b)
+{
+    /* Cast a to an int * and dereference the value at location its pointing to. */
+    int number1 = *(int *)a;
+    /* Cast b to an int * and dereference the value at location its pointing to. */
+    int number2 = *(int *)b;
+
+    /* If number1 = number2, return is 0. */
+    /* If number1 < number2, return is negative. */
+    /* If number1 > number2, return is positive. */
+    return number1 - number2;
+}
+
+void print_array(int *array, int length)
+{
+    int i;
+
+    for (i = 0; i < length; i++)
+    {
+        if ((i + 1) % 10 == 0)
+        {
+            printf("%3d\n", array[i]);
+        }
+        else
+        {
+            printf("%3d ", array[i]);
+        }
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    int i;
+    int key = 42;
+    int array[SIZE];
+    int *result;
+
+    srand(time(NULL));
+
+    for (i = 0; i < SIZE; i++)
+    {
+        array[i] = rand() % 100;
+    }
+
+    printf("Unsorted Array:\n");
+    print_array(array, SIZE);
+
+    qsort(array, SIZE, sizeof(int), compare_function);
+
+    printf("\nSorted Array:\n");
+    print_array(array, SIZE);
+
+    result = bsearch(&key, array, SIZE, sizeof(int), compare_function);
+
+    if (result == NULL)
+    {
+        printf("%d not in array\n", key);
+    }
+    else
+    {
+        printf("%d is at %p or array[%d]\n", key, result, result - array);
+    }
+
+    return 0;
+}
+

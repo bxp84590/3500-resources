@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main(int argc, char * argv[])
+{
+    printf("\e[0;34m");
+    printf("Hello, is this text in blue?\n");
+    printf("\e[0m");
+
+    return 0;
+}

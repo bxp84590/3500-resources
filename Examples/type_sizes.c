@@ -1,0 +1,43 @@
+/*******************************************************************************
+type_sizes.c
+
+Display the amount of memory, minimum, and maximum values for the C data types.
+*******************************************************************************/
+
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
+
+int main(int argc, char* argv[])
+{    
+    printf("%-20s %6s %20s %20s\n", "Type", "Bytes", "Min", "Max");
+    
+    /* char, signed char, and unsigned char */
+    printf("%20s %6lu %20d %20d\n", "char", sizeof(char), CHAR_MIN, CHAR_MAX);
+    printf("%20s %6lu %20d %20d\n", "signed char", sizeof(signed char), SCHAR_MIN, SCHAR_MAX);
+    printf("%20s %6lu %20d %20d\n", "unsigned char", sizeof(unsigned char), 0, UCHAR_MAX);
+
+    /* signed short int, unsigned short int */
+    printf("%20s %6lu %20d %20d\n", "signed short int", sizeof(signed short int), SHRT_MIN, SHRT_MAX);
+    printf("%20s %6lu %20d %20d\n", "unsigned short int", sizeof(unsigned short int), 0, USHRT_MAX);
+
+    /* signed int, unsigned int */
+    printf("%20s %6lu %20d %20u\n", "signed int", sizeof(signed int), INT_MIN, INT_MAX);
+    printf("%20s %6lu %20d %20u\n", "unsigned int", sizeof(unsigned int), 0, UINT_MAX);
+    
+    /* signed long int, unsigned long int */
+    printf("%20s %6lu %20li %20lu\n", "signed long int", sizeof(signed long int), LONG_MIN, LONG_MAX);
+    printf("%20s %6lu %20d %20lu\n", "unsigned long int", sizeof(unsigned long int), 0, ULONG_MAX);
+    
+    /* signed long long, unsigned long long */
+    //printf("%20s %6lu %20lli %20llu\n", "signed long long", sizeof(signed long long), LLONG_MIN, LLONG_MAX);
+    //printf("%20s %6lu %20d %20llu\n", "unsigned long long", sizeof(unsigned long long), 0, ULLONG_MAX);
+    
+    /* float, double, and long double */
+    printf("%20s %6lu %20f %20f\n", "float", sizeof(float), FLT_MIN, FLT_MAX);
+    printf("%20s %6lu %20f %20f\n", "double", sizeof(double), DBL_MIN, DBL_MAX);
+    //printf("%20s %6lu %20Lf %20Lf\n", "long double", sizeof(long double), LDBL_MIN, LDBL_MAX);
+    
+    return 0;
+}
+
